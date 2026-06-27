@@ -11,7 +11,8 @@ function showPosition(position) {
   if (!rigged) {
     currentcoords = [position.coords.latitude,position.coords.longitude]
   } else {
-    currentcoords = [39.135333, -84.520639];
+    // currentcoords = [39.135333, -84.520639];
+    // currentcoords = [39.128750, -84.510944];
   }
 } 
 
@@ -34,10 +35,14 @@ async function Main() {
       // currentcoords - topright / (bottom left - top right)
       let temp = [];
       for (let i in currentcoords) {
-        temp[i] = (1 -i*2) * (((1-i)*100) - ((currentcoords[i] - topright[i]) / (bottomleft[i] - topright[i]) * 100 ));
+        // TEST ONE: 160 RIGHT, temp[i] = (1 -i*2) * (((1-i)*100) - ((currentcoords[i] - topright[i]) / (bottomleft[i] - topright[i]) * 100 ));
+        temp[i] = ((currentcoords[i] - topright[i]) / (bottomleft[i] - topright[i]) * 100 );
+        if (i == 0) {
+          temp[i] = 100 - temp[i]
+        } else {
+          temp[i] = temp[i]
+        }
         pos[i] = temp[i];
-        console.log(currentcoords)
-        console.log(((currentcoords[i] - topright[i]) / (bottomleft[i] - topright[i]) * 100 ))
       }
       console.log(temp);
         // Move to Point
