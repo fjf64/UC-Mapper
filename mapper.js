@@ -23,6 +23,13 @@ function getLocation() {
     // x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
+document.getElementById("location-button").addEventListener("click", () => {
+    navigator.geolocation.getCurrentPosition(
+        showPosition,
+        (err) => console.log(err),
+        { enableHighAccuracy: true }
+    );
+});
 
 
 function sleep(ms) {
