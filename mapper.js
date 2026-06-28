@@ -60,6 +60,4 @@ async function Main() {
       await sleep(3000)
     }
 }
-getLocation()
 console.log(navigator.geolocation)
-Main()
